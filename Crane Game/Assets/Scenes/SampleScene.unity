@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 1356841728}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -536,6 +536,21 @@ PrefabInstance:
       propertyPath: intPlayerNo
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3367590705057932817, guid: 189e6295eb9c38f4a87ab6a1a23fd5eb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c7b4527bdc5f9bb4db07f837905874cc, type: 2}
+    - target: {fileID: 3367590704974577126, guid: 189e6295eb9c38f4a87ab6a1a23fd5eb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c7b4527bdc5f9bb4db07f837905874cc, type: 2}
+    - target: {fileID: 3367590703874155234, guid: 189e6295eb9c38f4a87ab6a1a23fd5eb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c7b4527bdc5f9bb4db07f837905874cc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 189e6295eb9c38f4a87ab6a1a23fd5eb, type: 3}
 --- !u!1 &1894247104
@@ -820,6 +835,11 @@ PrefabInstance:
         type: 3}
       propertyPath: intPlayerNo
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3367590703874155231, guid: 189e6295eb9c38f4a87ab6a1a23fd5eb,
+        type: 3}
+      propertyPath: m_TagString
+      value: LTruck
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 189e6295eb9c38f4a87ab6a1a23fd5eb, type: 3}
