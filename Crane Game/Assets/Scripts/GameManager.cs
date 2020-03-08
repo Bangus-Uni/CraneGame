@@ -5,11 +5,23 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+
+    public GameObject goTarget;
+
+    public int intPoints;
+
+    public Text txtPointText;
+
     public bool boolGameStarted = false;
 
     public float flTimeLeft = 5;
 
     public Text txtStartText;
+
+    void Start()
+    {
+        InvokeRepeating("SpawnTargets", 5f, 6f);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -23,5 +35,21 @@ public class GameManager : MonoBehaviour
                 Destroy(txtStartText);
             }
         }
+    }
+
+    void SpawnTargets ()
+    {
+        GameObject[] _goNoOfTargets = GameObject.FindGameObjectsWithTag("Target");
+
+        if (_goNoOfTargets.Length < 7)
+        {
+            Vector3 _v3SpawnPoint = new Vector3(Random.Range(-7.5f, 7.5f), 6, Random.Range(-7.5f, 7.5f));
+            Instantiate(goTarget, _v3SpawnPoint, Quaternion.Euler(0, 0, 0));
+        }
+    }
+
+    public void AddPoints() {
+        intPoints++;
+        txtPointText.text = intPoints.ToString();
     }
 }

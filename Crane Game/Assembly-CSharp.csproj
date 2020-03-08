@@ -63,6 +63,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DeathZone.cs" />
+    <Compile Include="Assets\NICKEDSTUFF\Scripts\CameraFollowController.cs" />
+    <Compile Include="Assets\NICKEDSTUFF\Scripts\SimpleCameraController.cs" />
+    <Compile Include="Assets\NICKEDSTUFF\Scripts\SimpleCarController.cs" />
     <Compile Include="Assets\Scripts\Crane.cs" />
     <Compile Include="Assets\Scripts\FloorCheck.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />

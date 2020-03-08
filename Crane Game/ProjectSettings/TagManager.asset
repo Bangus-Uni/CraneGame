@@ -9,6 +9,8 @@ TagManager:
   - RTruck
   - WB
   - Part
+  - Car
+  - Target
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - 
   - Part
   - WB
-  - 
-  - 
+  - Target
+  - Floor
   - 
   - 
   - 
