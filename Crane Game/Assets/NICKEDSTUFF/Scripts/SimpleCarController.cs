@@ -4,7 +4,36 @@ using UnityEngine;
 
 public class SimpleCarController : MonoBehaviour {
 
-	public void GetInput()
+    public GameManager GM;
+
+    private float m_horizontalInput;
+    private float m_verticalInput;
+    private float m_steeringAngle;
+
+    public WheelCollider frontDriverW, frontPassengerW;
+    public WheelCollider rearDriverW, rearPassengerW;
+    public Transform frontDriverT, frontPassengerT;
+    public Transform rearDriverT, rearPassengerT;
+    public float maxSteerAngle = 95;
+    public float motorForce = 165;
+
+    private void Start()
+    {
+        GM = GameObject.FindObjectOfType<GameManager>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (GM.boolGameStarted)
+        {
+            GetInput();
+            Steer();
+            Accelerate();
+            UpdateWheelPoses();
+        }
+    }
+
+    public void GetInput()
 	{
 		m_horizontalInput = Input.GetAxis("Horizontal");
 		m_verticalInput = Input.GetAxis("Vertical");
@@ -21,7 +50,9 @@ public class SimpleCarController : MonoBehaviour {
 	{
 		frontDriverW.motorTorque = m_verticalInput * motorForce;
 		frontPassengerW.motorTorque = m_verticalInput * motorForce;
-	}
+        rearDriverW.motorTorque = m_verticalInput * motorForce;
+        rearPassengerW.motorTorque = m_verticalInput * motorForce;
+    }
 
 	private void UpdateWheelPoses()
 	{
@@ -42,22 +73,4 @@ public class SimpleCarController : MonoBehaviour {
 		_transform.rotation = _quat;
 	}
 
-	private void FixedUpdate()
-	{
-		GetInput();
-		Steer();
-		Accelerate();
-		UpdateWheelPoses();
-	}
-
-	private float m_horizontalInput;
-	private float m_verticalInput;
-	private float m_steeringAngle;
-
-	public WheelCollider frontDriverW, frontPassengerW;
-	public WheelCollider rearDriverW, rearPassengerW;
-	public Transform frontDriverT, frontPassengerT;
-	public Transform rearDriverT, rearPassengerT;
-	public float maxSteerAngle = 30;
-	public float motorForce = 50;
 }

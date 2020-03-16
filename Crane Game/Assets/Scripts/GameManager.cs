@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     public float flTimeLeft = 5;
 
+    public int intNoOfCubes = 5;
+
     public Text txtStartText;
 
     void Start()
@@ -41,7 +43,7 @@ public class GameManager : MonoBehaviour
     {
         GameObject[] _goNoOfTargets = GameObject.FindGameObjectsWithTag("Target");
 
-        if (_goNoOfTargets.Length < 7)
+        if (_goNoOfTargets.Length < intNoOfCubes)
         {
             Vector3 _v3SpawnPoint = new Vector3(Random.Range(-7.5f, 7.5f), 6, Random.Range(-7.5f, 7.5f));
             Instantiate(goTarget, _v3SpawnPoint, Quaternion.Euler(0, 0, 0));
