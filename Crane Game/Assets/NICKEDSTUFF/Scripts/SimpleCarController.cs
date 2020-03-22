@@ -6,6 +6,8 @@ public class SimpleCarController : MonoBehaviour {
 
     public GameManager GM;
 
+    public bool boolRotating;
+
     private float m_horizontalInput;
     private float m_verticalInput;
     private float m_steeringAngle;
@@ -16,6 +18,7 @@ public class SimpleCarController : MonoBehaviour {
     public Transform rearDriverT, rearPassengerT;
     public float maxSteerAngle = 95;
     public float motorForce = 165;
+    public float spinMotorForce = 500000;
 
     private void Start()
     {
@@ -48,10 +51,20 @@ public class SimpleCarController : MonoBehaviour {
 
 	private void Accelerate()
 	{
-		frontDriverW.motorTorque = m_verticalInput * motorForce;
-		frontPassengerW.motorTorque = m_verticalInput * motorForce;
-        rearDriverW.motorTorque = m_verticalInput * motorForce;
-        rearPassengerW.motorTorque = m_verticalInput * motorForce;
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            frontDriverW.motorTorque = m_verticalInput * spinMotorForce;
+            frontPassengerW.motorTorque = m_verticalInput * spinMotorForce;
+        }
+
+        else
+        {
+            frontDriverW.motorTorque = m_verticalInput * motorForce;
+            frontPassengerW.motorTorque = m_verticalInput * motorForce;
+            rearDriverW.motorTorque = m_verticalInput * motorForce;
+            rearPassengerW.motorTorque = m_verticalInput * motorForce;
+        }
+
     }
 
 	private void UpdateWheelPoses()
