@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     public Text txtPointText;
 
+    public bool boolDropBlocks;
+
     public bool boolGameStarted = false;
 
     public float flTimeLeft = 5;
@@ -22,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("SpawnTargets", 5f, 6f);
+        if (boolDropBlocks) InvokeRepeating("SpawnTargets", 5f, 6f);
     }
     // Update is called once per frame
     void Update()
